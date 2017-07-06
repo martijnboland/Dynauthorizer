@@ -1,0 +1,25 @@
+{
+  "version": "0.1.0",
+  "command": "dotnet",
+  "isShellCommand": true,
+  "args": [],
+  "tasks": [
+    {
+      "taskName": "build",
+      "args": [
+        "${workspaceRoot}/Dynauthorizer.sln"
+      ],
+      "isBuildCommand": true,
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "taskName": "test",
+      "args": [
+        "${workspaceRoot}/test/Dynauthorizer.Tests/Dynauthorizer.Tests.csproj"
+      ],
+      "isTestCommand": true,
+      "showOutput": "always",
+      "problemMatcher": "$msCompile"
+    }
+  ]
+}
