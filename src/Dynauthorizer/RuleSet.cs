@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Dynauthorizer
 {
@@ -13,6 +15,7 @@ namespace Dynauthorizer
             get { return _rules; }
         }
 
+        [JsonConverter(typeof(StringEnumConverter))]
         public RuleSetOperator Operator { get; set; }
 
         public RuleSet() : this(new List<IRule>(), RuleSetOperator.And)
