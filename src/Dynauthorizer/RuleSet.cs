@@ -8,11 +8,13 @@ namespace Dynauthorizer
 {
     public class RuleSet : IRule
     {
-        private readonly List<IRule> _rules;
+        private List<IRule> _rules;
 
+        [JsonConverter(typeof(RuleEnumerableConverter))]
         public IEnumerable<IRule> Rules
         {
             get { return _rules; }
+            set { _rules = new List<IRule>(value); }
         }
 
         [JsonConverter(typeof(StringEnumConverter))]

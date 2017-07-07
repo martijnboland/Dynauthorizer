@@ -1,0 +1,29 @@
+{
+  "name": "AdminDynauthorizerSalesPowerUserPolicy",
+  "rootRule": {
+    "rules": [
+      {
+        "claimType": "role",
+        "claimValue": "admin"
+      },
+      {
+        "claimType": "name",
+        "claimValue": "Dynauthorizer"
+      },
+      {
+        "rules": [
+          {
+            "claimType": "role",
+            "claimValue": "power user"
+          },
+          {
+            "claimType": "department",
+            "claimValue": "sales"
+          }
+        ],
+        "operator": "And"
+      }
+    ],
+    "operator": "Or"
+  }
+}

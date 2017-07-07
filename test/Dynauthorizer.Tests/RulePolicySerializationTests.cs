@@ -63,5 +63,17 @@ namespace Dynauthorizer.Tests
 }";
             Assert.Equal(expectedString, jsonString);
         }
+
+        [Fact]
+        public void A_policy_can_be_properly_deserialized_from_json()
+        {
+            var jsonString = File.ReadAllText("Policies/AdminDynauthorizerSalesPowerUserPolicy.json");
+
+            var policy = JsonConvert.DeserializeObject<RulePolicy>(jsonString);
+
+            Assert.NotNull(policy);
+            Assert.IsType<RuleSet>(policy.RootRule);
+
+        }
     }
 }
