@@ -16,10 +16,10 @@ namespace Dynauthorizer.Tests
         }
 
         [Fact]
-        public void Rule_without_principal_returns_false()
+        public void Rule_without_matching_principal_returns_false()
         {
             var rule = new ClaimRule { ClaimType = "testclaim", ClaimValue = "testvalue" };
-            var principal = new ClaimsPrincipalBuilder().Build();
+            var principal = new ClaimsPrincipalBuilder().Build(); // empty, no claims
 
             var isOk = rule.IsSatisfiedBy(principal);
 

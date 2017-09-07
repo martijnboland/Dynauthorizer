@@ -23,8 +23,10 @@ namespace Dynauthorizer.Tests
             var rule1 = new ClaimRule { ClaimType = "testclaim1", ClaimValue = "testvalue1" };
             var rule2 = new ClaimRule { ClaimType = "testclaim2", ClaimValue = "testvalue2" };
             var ruleSet = new RuleSet(new[] { rule1, rule2 }, RuleSetOperator.Or);
+            var principalWithBothClaims = new ClaimsPrincipalBuilder().WithClaim("testclaim1", "testvalue1").WithClaim("testclaim2", "testvalue2").Build();
             var principalWithOnlyOneClaim = new ClaimsPrincipalBuilder().WithClaim("testclaim1", "testvalue1").Build();
 
+            Assert.True(ruleSet.IsSatisfiedBy(principalWithBothClaims));
             Assert.True(ruleSet.IsSatisfiedBy(principalWithOnlyOneClaim));
         }
 
